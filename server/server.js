@@ -1,11 +1,22 @@
 import express from "express";
-const app = express()
-const port = 3000
+import connectDB from "./config/db.js";
+import dotenv from "dotenv";
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+dotenv.config();
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const app = express();
+const PORT = process.env.PORT | 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+const startServer = async () => {
+  await connectDB();
+
+  app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
+  });
+};
+
+startServer();
