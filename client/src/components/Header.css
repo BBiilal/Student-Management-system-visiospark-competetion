@@ -1,0 +1,16 @@
+.main-header{
+    background-color: black;
+    color: white;
+}
+.header-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+.header-items > ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
